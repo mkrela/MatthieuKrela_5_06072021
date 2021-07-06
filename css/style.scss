@@ -14,12 +14,21 @@ a, a:hover, a:focus, a:active {
 header{
     font-size: 2rem;
     font-style: italic;
+    background-color: #b3977d;
+    border-radius: 0 0 1em 1em;
+    h1 {
+        padding-left: 1em;
+    }
 }
 
 .teddy-bear__bg {
-    background-image: url(/sources/5TLm2b.jpg);
+    margin: auto;
+    width: 95%;
+    border: rgb(153, 153, 148) 3px solid;
+    border-radius: 2em;
+    box-shadow: 0 0 15px 2px rgb(66, 65, 65) ;
+    background-image: url(/images/nounours.jpg);
     background-size: cover;
-    background
     height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -32,11 +41,11 @@ header{
 }
 
 .teddy-bear__bg__text-group {
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    color: white;
     h2 {
         font-size: 3em;
     }
@@ -45,3 +54,16 @@ header{
     }
 }
 
+.catalogue {
+    font-size: 2em;
+    font-style: italic;
+    text-decoration: cadetblue wavy underline;
+}
+
+footer {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 700;
+    border-radius: 1em 1em 0 0;
+    background-color: #b3977d;
+}
