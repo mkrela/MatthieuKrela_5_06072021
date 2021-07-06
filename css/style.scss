@@ -1,0 +1,47 @@
+* {
+    font-family: 'Lora', Georgia, Times, 'Times New Roman', serif;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+header{
+    font-size: 2rem;
+    font-style: italic;
+}
+
+.teddy-bear__bg {
+    background-image: url(/sources/5TLm2b.jpg);
+    background-size: cover;
+    background
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-item-align: center;
+        align-self: center;
+}
+
+.teddy-bear__bg__text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    h2 {
+        font-size: 3em;
+    }
+    p {
+        font-size: 2em;
+    }
+}
+
