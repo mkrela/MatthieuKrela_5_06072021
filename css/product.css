@@ -1,0 +1,230 @@
+* {
+  font-family: 'Lora', Georgia, Times, 'Times New Roman', serif;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  font-size: 2rem;
+  font-style: italic;
+  background-color: #b3977d;
+  border-radius: 0 0 1em 1em;
+}
+
+header h1 {
+  padding-left: 1em;
+}
+
+.teddy-bear__bg {
+  margin: auto;
+  width: 95%;
+  border: #999994 3px solid;
+  border-radius: 2em;
+  -webkit-box-shadow: 0 0 15px 2px #424141;
+  box-shadow: 0 0 15px 2px #424141;
+  background-image: url(/images/nounours.jpg);
+  background-size: cover;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.teddy-bear__bg__text-group {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.teddy-bear__bg__text-group h2 {
+  font-size: 3em;
+}
+
+.teddy-bear__bg__text-group p {
+  font-size: 2em;
+}
+
+.catalogue {
+  font-size: 2em;
+  font-style: italic;
+  -webkit-text-decoration: cadetblue wavy underline;
+  text-decoration: cadetblue wavy underline;
+}
+
+footer {
+  font-size: 2vw;
+  font-weight: 600;
+  font-style: italic;
+  border-radius: 1em 1em 0 0;
+  background-color: #b3977d;
+}
+
+.products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 10vh;
+}
+
+.product {
+  width: 15%;
+  height: auto;
+  -webkit-box-shadow: 0 0 10px 1px #a1a0a0;
+  box-shadow: 0 0 10px 1px #a1a0a0;
+  /* border: 1px solid black; */
+  border-radius: 10%;
+  background-color: #b3977d;
+}
+
+.product__img img {
+  border-radius: 10% 10% 0 0;
+  width: 100%;
+  height: 150px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.product__infos {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  padding-top: 1vh;
+  height: 8vh;
+}
+
+.product__infos__price {
+  font-weight: 900;
+}
+
+.product-card__infos__button {
+  background: #b3977d;
+  border-radius: 1vw;
+  text-align: center;
+  margin: 1vh;
+  border: 0.5px solid rgb(109, 109, 109);
+  text-decoration: none;
+}
+
+.back-to-home {
+  text-decoration: none;
+  color: black;
+}
+
+.add-to-cart {
+  text-decoration: none;
+  color: black;
+}
+
+
+.product-card__infos__button:hover {
+  transform: scale(1.20);
+  transition: 0.1s ease-in-out;
+  font-weight: bold;
+}
+
+footer a {
+  font-weight: 000;
+  text-decoration: none;
+  color: black;
+}
+
+footer a:hover {
+  color:black;
+}
+.nav {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  padding : 50px;
+}
+
+.nav i {
+  color: #1d1a1a96;
+}
+.img {
+  height: 300px;
+  margin: 50px;
+  width: auto;
+  object-fit: cover;
+  border: 0.5px solid #42414165;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 2px #999994;
+}
+
+.product-card {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: row;
+  padding: 1vh;
+}
+
+.product-card__infos {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card__infos__price {
+  font-weight: 700;
+}
+
+.product-card__infos__title {
+  font-weight: 800;
+  font-size: 22px;
+  text-decoration: wavy cadetblue underline overline;
+}
+
+.product-card__infos__description {
+  font-size: 12px;
+}
+
+.nav a {
+  color: #424141;
+}
+
+.nav__logo {
+  color: black;
+  font-size: 70px;
+}
+
+.container .product-card__infos .added-to-cart-confirmation {
+  visibility: hidden;
+}
+
+.container .product-card__infos .added-to-cart-confirmation p {
+  padding: 5px;
+  background-color: #64c264;
+  border: #368a36 1px solid;
+}
+/*# sourceMappingURL=style.css.map */

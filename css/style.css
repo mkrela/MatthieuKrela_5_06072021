@@ -68,8 +68,8 @@ header h1 {
 .catalogue {
   font-size: 2em;
   font-style: italic;
-  -webkit-text-decoration: cadetblue wavy underline;
-          text-decoration: cadetblue wavy underline;
+  -webkit-text-decoration: cadetblue wavy underline overline;
+          text-decoration: cadetblue wavy underline overline;
 }
 
 footer {
@@ -103,6 +103,11 @@ footer {
           /* border: 1px solid black; */
           border-radius: 10%;
           background-color: #b3977d;
+}
+
+.product:hover {
+  transform: scale(1.20);
+  transition: 0.2s ease-in-out;
 }
 
 /* .product__img {
