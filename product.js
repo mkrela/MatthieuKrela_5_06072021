@@ -15,6 +15,7 @@ main();
 function main() {
   checkIf404();
   getArticles();
+  addToCart();
 }
 
 function checkIf404() {
@@ -33,7 +34,7 @@ function checkIf404() {
 }
 
 function getArticles() {
-  // Recupération données produit relatives à l'id de l'article
+  // On récupère uniquement le produit dont on a besoin via le paramètre dans la requête
   fetch(`http://localhost:3000/api/teddies/${id}`)
     .then(function (response) {
       return response.json();
@@ -46,13 +47,13 @@ function getArticles() {
       container.style.padding = "45vh 0";
     })
     .then(function (resultatAPI) {
-      // Disposition des données reçues relatives a l'article
+      // On place les données reçues via l'API aux bons endroits sur la page
       article = resultatAPI;
       productCardName.innerHTML = article.name;
       productCardImg.src = article.imageUrl;
       productCardDescription.innerText = article.description;
 
-      // Affichage prix au format €
+      // Formatage du prix pour l'afficher en euros
       article.price = article.price / 100;
       productCardPrice.innerText = new Intl.NumberFormat("fr-FR", {
         style: "currency",
@@ -68,12 +69,11 @@ function getArticles() {
     });
 }
 
-
 function addToCart() {
   const addToCartBtn = document.querySelector(".add-to-cart");
   const confirmation = document.querySelector(".added-to-cart-confirmation");
   const textConfirmation = document.querySelector(".confirmation-text");
-  
+
   addToCartBtn.addEventListener("click", () => {
     if (bearNumber.value > 0 && bearNumber.value < 100) {
       // ------ Création du produit qui sera ajouté au panier
@@ -86,21 +86,19 @@ function addToCart() {
 
       // ----------------- Gestion du localStorage
       let arrayProductsInCart = [];
-      
+
       // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
       if (localStorage.getItem("products") !== null) {
         arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
-        
-        
-        // Si le LS est vide, on le crée avec le produit ajouté
-      } 
-        arrayProductsInCart.push(productAdded);
-        localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
-      
 
-      // Effets visuels lors d'un ajout au panier
+        // Si LocalStorage est vide, on le crée avec le produit ajouté
+      }
+      arrayProductsInCart.push(productAdded);
+      localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
+
+      // Effets visuels de confirmation d'un article
       confirmation.style.visibility = "visible";
-      textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} nounours à votre panier !`;
+      textConfirmation.innerHTML = `${bearNumber.value} articles ajouté(s) !`;
       setTimeout("location.reload(true);", 4000);
     } else {
       confirmation.style.visibility = "visible";

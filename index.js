@@ -27,7 +27,7 @@ function getArticles() {
         let productLink = document.createElement("a");
         productCard.appendChild(productLink);
         productLink.href = `product.html?id=${resultatAPI[article]._id}`;
-        productLink.classList.add("stretched-link");
+        // productLink.classList.add("stretched-link");
 
         let productImgDiv = document.createElement("div");
         productLink.appendChild(productImgDiv);
@@ -57,42 +57,4 @@ function getArticles() {
         }).format(resultatAPI[article].price);
       }
     });
-}
-
-function addToCart() {
-  const addToCartBtn = document.querySelector(".add-to-cart");
-  const addToCartConfirmation = document.querySelector(".added-to-cart-confirmation");
-  const textConfirmation = document.querySelector(".confirmation-text");
-
-  addToCartBtn.addEventListener("click", () => {
-    if (bearNumber.value > 0 && bearNumber.value < 100) {
-      let productAdded = {
-        name: productCardName.innerHTML,
-        price: parseFloat(productCardPrice.innerHTML),
-        quantity: parseFloat(document.querySelector("#bearNum").value),
-        _id: id,
-      };
-
-      let arrayProductsInCart = [];
-      // creation local storage
-      if (localStorage.getItem("products") !== null) {
-        arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
-      }
-
-      arrayProductsInCart.push(productAdded);
-      localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
-
-      addToCartConfirmation.style.visibility= "visible" ;
-      textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} articles à votre panier!`;
-      setTimeout("location.reload(true);", 4000);
-    }
-    else {
-      addToCartConfirmation.visibility = "visible";
-      textConfirmation.style.background = "red";
-      textConfirmation.style.border = "red";
-      textConfirmation.style.color = "white";
-      textConfirmation.style.whiteSpace = "normal";
-      textConfirmation.innerText = `La quantité doit être comprise entre 1 et 99,.`;
-    }
-  });
 }

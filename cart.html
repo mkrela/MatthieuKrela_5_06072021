@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <title>Orinounours</title>
+  </head>
+
+  <body>
+    <header class="container-fluid">
+      <div class="row">
+        <div class="col-6 text-left logo p-4">
+          <a href="index.html">
+            <h1>Orinounours</h1>
+          </a>
+        </div>
+        <div class="col-6 text-right p-4">
+          <a href="cart.html">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="container-fluid text-center mt-5">
+        <div class="cart-card">
+            <h2 class="cart">
+                Total de vos achats :
+            </h2>
+            <div class="cart-card__recap">
+                <div class="cart-card__recap__row ">
+                    <div class="cart-card__recap__title first-line">Nom</div>
+                    <div class="cart-card__recap__title title-quantity first-line">Quantité</div>
+                    <div class="cart-card__recap__title data-price first-line">Prix </div>
+
+                </div>                     
+                <div class="width-to-empty-cart">
+                    <a href="cart.html">
+                        <div class="cart-card__form__button to-empty-cart">
+                            Vider le panier
+                        </div>
+                    </a>
+                </div>
+                <h2 class="total"></h2>            
+            </div>                
+            </div>
+      </div>
+
+        <div class="cart-card__form">
+          <h2>Votre Adresse de livraison</h2>
+          <form class="form">
+            <div class="name-and-lastname">
+              <div class="cart-card__form-line" id="bloc__name">
+                <label for="name">Prénom :</label>
+                <input type="text" placeholder="Prénom" id="name" name="user_name" required>
+              </div>
+              <div class="cart-card__form-line" id="bloc__lastname">
+                <label for="lastname">Nom :</label>
+                <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required>
+              </div>
+            </div>
+            <div class="postal-and-city">
+              <div class="cart-card__form-line" id="bloc__postal">
+                <label for="postal">Code postal :</label>
+                <input type="text" placeholder="Code Postal" id="postal" name="user_postal" required>
+              </div>
+              <div class="cart-card__form-line" id="bloc__city">
+                <label for="city">Ville :</label>
+                <input type="text" placeholder="Ville" id="city" name="user_city" required>
+              </div>
+              <div class="cart-card__form-line" id="bloc__adresse">
+                <label for="adress">Adresse :</label>
+                <input type="text" placeholder="Adresse" id="adress" name="user_adress" required>
+              </div>
+              <div class="cart-card__form-line" id="bloc__mail">
+                <label for="mail">Adresse mail :</label>
+                <input type="text" placeholder="Mail" id="mail" name="user_mail" required>
+              </div>
+              <div class="cart-card__form-line" id="bloc__phone">
+                <label for="phone" >Numéro de téléphone :</label>
+                <input type="tel" placeholder="Numéro de téléphone" id="phone" name="phone" required >
+            </div>
+            <div class="erreur"></div>
+            <div class="cart-card__form__buttons">
+              <a id="submit" class="cart-card__form__button to-pay" >Commander</a>
+            </div>
+          </form>
+        </div>
+        <div class="if-empty-cart">
+            <h2>Panier vide <a href="index.html"> index </a></h2>
+        </div>
+        <footer class="container-fluid mt-5">
+          <div class="row text-center p-5">
+            <div class="col-3"><a href="#">Nous Contacter</a></div>
+            <div class="col-3"><a href="#">Mentions Légales</a></div>
+            <div class="col-3"><a href="#">Nous recrutons</a></div>
+            <div class="col-3"><a href="#">Partenaires</a></div>
+          </div>
+        </footer>
+    
+  </body>
+  <script src="./cart.js"></script>
+</html>

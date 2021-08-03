@@ -47,7 +47,7 @@
     <header class="container-fluid">
       <div class="row">
         <div class="col-6 text-left logo p-4">
-          <a href="#">
+          <a href="index.html">
             <h1>Orinounours</h1>
           </a>
         </div>
@@ -60,23 +60,15 @@
     </header>
 
     <main>
-      <div class="teddy-bear__bg my-5">
-        <div class="teddy-bear__bg__text-group">
-          <h2 class="teddy-bear__bg__text-group__title">
-            Confection de nounours à la carte
-          </h2>
-          <p class="teddy-bear__bg__text-group__subtitle">
-            Nous créons nous mêmes les nounours qui sauront ravir vos enfants.
-            Nos produits sont soumis aux legislations en vigueur et conformes
-            aux normes europpéennes de sécurité.
+      <div class="recap">
+        <div class="confirm">
+          <h2>Votre commande a bien été prise en compte</h2>
+          <p class="total">
+            Le montant total est de <span class="display-price"></span>
           </p>
-        </div>
-      </div>
-
-      <div class="products-container">
-        <h3 class="title text-center catalogue mb-5">Nos produits</h3>
-        <div class="products">
-          <!-- ICI VONT ALLER LES PRODUITS QUI SONT CREES DYNAMIQUEMENT PAR JS -->
+          <p class="orderid">
+            Votre numéro de commande est : <span class="display-orderid"></span>
+          </p>
         </div>
       </div>
     </main>
@@ -90,6 +82,6 @@
       </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="confirmation.js"></script>
   </body>
 </html>
