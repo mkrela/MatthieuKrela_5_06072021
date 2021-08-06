@@ -28,10 +28,12 @@ header h1 {
   border: #999994 3px solid;
   border-radius: 2em;
   -webkit-box-shadow: 0 0 15px 2px #424141;
-          box-shadow: 0 0 15px 2px #424141;
+  box-shadow: 0 0 15px 2px #424141;
   background-image: url(/images/nounours.jpg);
   background-size: cover;
-  height: 100vh;
+  min-height: 100px;
+  height: 70vh;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,6 +42,7 @@ header h1 {
   justify-content: center;
   -ms-flex-item-align: center;
   align-self: center;
+  object-fit: cover;
 }
 
 .teddy-bear__bg__text-group {
@@ -49,11 +52,11 @@ header h1 {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   text-align: center;
 }
 
@@ -69,7 +72,7 @@ header h1 {
   font-size: 2em;
   font-style: italic;
   -webkit-text-decoration: cadetblue wavy underline overline;
-          text-decoration: cadetblue wavy underline overline;
+  text-decoration: cadetblue wavy underline overline;
 }
 
 footer {
@@ -86,39 +89,31 @@ footer {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .product {
   margin: 10px;
   width: 15%;
   min-width: 150px;
-  height:auto;
+  height: auto;
   -webkit-box-shadow: 0 0 10px 1px #a1a0a0;
-          box-shadow: 0 0 10px 1px #a1a0a0;
-          /* border: 1px solid black; */
-          border-radius: 10%;
-          background-color: #b3977d;
+  box-shadow: 0 0 10px 1px #a1a0a0;
+  /* border: 1px solid black; */
+  border-radius: 10%;
+  background-color: #b3977d;
 }
-
 
 .product:hover {
   transform: scale(1.10);
   transition: 0.1s ease-in-out;
   opacity: 0.8;
 }
-
-/* .product__img {
-  width: 100%;
-  height: 100%;
-  background: #b6a58b;
-  border-radius: 10px 10px 0 0;
-} */
 
 .product__img img {
   border-radius: 10% 10% 0 0;
@@ -140,4 +135,5 @@ footer {
 .product__infos__price {
   font-weight: 900;
 }
+
 /*# sourceMappingURL=style.css.map */

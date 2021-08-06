@@ -1,5 +1,6 @@
 * {
   font-family: 'Lora', Georgia, Times, 'Times New Roman', serif;
+  color: #212529;
 }
 
 a {
@@ -18,91 +19,31 @@ header {
   border-radius: 0 0 1em 1em;
 }
 
-header h1 {
-  padding-left: 1em;
-}
-
-.teddy-bear__bg {
-  margin: auto;
-  width: 95%;
-  border: #999994 3px solid;
-  border-radius: 2em;
-  -webkit-box-shadow: 0 0 15px 2px #424141;
-  box-shadow: 0 0 15px 2px #424141;
-  background-image: url(/images/nounours.jpg);
-  background-size: cover;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.teddy-bear__bg__text-group {
-  color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.teddy-bear__bg__text-group h2 {
-  font-size: 3em;
-}
-
-.teddy-bear__bg__text-group p {
-  font-size: 2em;
-}
-
-.catalogue {
-  font-size: 2em;
+header a {
+  text-decoration: none;
   font-style: italic;
-  -webkit-text-decoration: cadetblue wavy underline;
-  text-decoration: cadetblue wavy underline;
+  color: #212529;
+}
+
+header h1 {
+  color: #212529;
 }
 
 footer {
-  font-size: 2vw;
-  font-weight: 600;
-  font-style: italic;
   border-radius: 1em 1em 0 0;
   background-color: #b3977d;
 }
 
-.products {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding: 10vh;
+footer a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: none;
+  color: #212529;
 }
 
-.product {
-  width: 15%;
-  height: auto;
-  -webkit-box-shadow: 0 0 10px 1px #a1a0a0;
-  box-shadow: 0 0 10px 1px #a1a0a0;
-  /* border: 1px solid black; */
-  border-radius: 10%;
-  background-color: #b3977d;
+header h1 {
+  padding-left: 1em;
 }
 
 .product__img img {
@@ -145,35 +86,30 @@ footer {
   color: black;
 }
 
-
 .product-card__infos__button:hover {
   transform: scale(1.20);
   transition: 0.1s ease-in-out;
   font-weight: bold;
 }
 
-footer a {
-  font-weight: 000;
-  text-decoration: none;
-  color: black;
+footer a:hover {
+  color: #212529;
 }
 
-footer a:hover {
-  color:black;
-}
 .nav {
   color: black;
   display: flex;
   justify-content: space-between;
-  padding : 50px;
+  padding: 50px;
 }
 
 .nav i {
   color: #1d1a1a96;
 }
+
 .img {
-  height: 300px;
-  margin: 50px;
+  height: 33vw;
+  margin: 5vw;
   width: auto;
   object-fit: cover;
   border: 0.5px solid #42414165;
@@ -227,4 +163,5 @@ footer a:hover {
   background-color: #64c264;
   border: #368a36 1px solid;
 }
+
 /*# sourceMappingURL=style.css.map */

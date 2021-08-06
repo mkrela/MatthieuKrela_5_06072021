@@ -1,6 +1,5 @@
 let cart = document.querySelector(".cart-card__recap");
 let copyOfLS = JSON.parse(localStorage.getItem("products"));
-console.log("hello comment ca va ? Bien et toi ? bibi c le meilleur wallah");
 console.log(localStorage);
 
 
@@ -76,11 +75,12 @@ function countTotalInCart() {
   arrayOfPrice = arrayOfPrice.filter((el) => {
     return el != undefined;
   });
-
+  console.log(arrayOfPrice);
   // Transformer en nombre chaque valeur du tableau
   arrayOfPrice = arrayOfPrice.map((x) => parseFloat(x));
 
   // Additionner les valeurs du tableau pour avoir le prix total
+
   const reducer = (acc, currentVal) => acc + currentVal;
   arrayOfPrice = arrayOfPrice.reduce(reducer);
 
@@ -110,7 +110,7 @@ function checkFormAndPostRequest() {
   let inputLastName = document.querySelector("#lastname");
   let inputPostal = document.querySelector("#postal");
   let inputCity = document.querySelector("#city");
-  let inputAdress = document.querySelector("#adress");
+  let inputAddress = document.querySelector("#adress");
   let inputMail = document.querySelector("#mail");
   let inputPhone = document.querySelector("#phone");
   let erreur = document.querySelector(".erreur");
@@ -121,7 +121,7 @@ function checkFormAndPostRequest() {
       !inputLastName.value ||
       !inputPostal.value ||
       !inputCity.value ||
-      !inputAdress.value ||
+      !inputAddress.value ||
       !inputMail.value ||
       !inputPhone.value
     ) {
@@ -139,7 +139,7 @@ function checkFormAndPostRequest() {
           firstName: inputName.value,
           lastName: inputLastName.value,
           city: inputCity.value,
-          adress: inputAdress.value,
+          address: inputAddress.value,
           email: inputMail.value,
         },
         products: productsBought,
