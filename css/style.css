@@ -16,6 +16,8 @@ header {
   font-style: italic;
   background-color: #b3977d;
   border-radius: 0 0 1em 1em;
+  text-shadow: 1px 1px 4px cadetblue;
+
 }
 
 header h1 {

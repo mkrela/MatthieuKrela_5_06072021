@@ -87,6 +87,15 @@ function addToCart() {
       // ----------------- Gestion du localStorage
       let arrayProductsInCart = [];
 
+      // // CREATION OBJET DANS LE LS
+      // let article = new Object ();
+      // article.quantity = "quantity";
+      // article.color = "color";
+      // article.name = "name";
+      // article.price = "price";
+      // article.totalprice =article.quantity *article.price;
+
+      
       // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
       if (localStorage.getItem("products") !== null) {
         arrayProductsInCart = JSON.parse(localStorage.getItem("products"));

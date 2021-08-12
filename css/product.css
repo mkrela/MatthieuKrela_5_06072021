@@ -19,10 +19,15 @@ header {
   border-radius: 0 0 1em 1em;
 }
 
+header i {
+  text-shadow: 0px 0px 5px cadetblue;
+}
+
 header a {
   text-decoration: none;
   font-style: italic;
   color: #212529;
+  text-shadow: 1px 1px 4px cadetblue;
 }
 
 header h1 {
@@ -61,10 +66,6 @@ header h1 {
   font-weight: 500;
   padding-top: 1vh;
   height: 8vh;
-}
-
-.product__infos__price {
-  font-weight: 900;
 }
 
 .product-card__infos__button {
@@ -125,24 +126,35 @@ footer a:hover {
 }
 
 .product-card__infos {
-  padding: 50px;
+  padding: 1vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .product-card__infos__price {
-  font-weight: 700;
+  font-weight: 900;
+  font-size: 2rem;
+  text-shadow: 1px 1px 4px cadetblue;
 }
 
 .product-card__infos__title {
   font-weight: 800;
-  font-size: 22px;
+  font-size: 2vw;
   text-decoration: wavy cadetblue underline overline;
+  text-shadow: 1px 1px 4px cadetblue;
+}
+
+.product-card__infos__quantity {
+  font-size: 1.5vw;
+}
+
+.product-card__infos__color {
+  font-size: 1.5vw;
 }
 
 .product-card__infos__description {
-  font-size: 12px;
+  font-size: 1.5vw;
 }
 
 .nav a {
@@ -156,12 +168,19 @@ footer a:hover {
 
 .container .product-card__infos .added-to-cart-confirmation {
   visibility: hidden;
+  font-size: 2vw;
 }
 
 .container .product-card__infos .added-to-cart-confirmation p {
+  font-size: 2vw;
   padding: 5px;
-  background-color: #64c264;
-  border: #368a36 1px solid;
+}
+
+.confirmation-text {
+  font-size: 1.5vw;
+  background-color: rgba(26, 151, 53, 0.61);
+  border-radius: 1rem 1rem;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

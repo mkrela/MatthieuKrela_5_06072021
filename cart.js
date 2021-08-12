@@ -1,12 +1,9 @@
 let cart = document.querySelector(".cart-card__recap");
 let copyOfLS = JSON.parse(localStorage.getItem("products"));
-console.log(localStorage);
-
+console.log(copyOfLS);
 
 main();
 
-
-toEmptyCart();
 function main() {
   displayCart();
   countTotalInCart();
@@ -75,7 +72,7 @@ function countTotalInCart() {
   arrayOfPrice = arrayOfPrice.filter((el) => {
     return el != undefined;
   });
-  console.log(arrayOfPrice);
+  // console.log(arrayOfPrice);
   // Transformer en nombre chaque valeur du tableau
   arrayOfPrice = arrayOfPrice.map((x) => parseFloat(x));
 
@@ -93,6 +90,7 @@ function countTotalInCart() {
     }
   ).format(arrayOfPrice))}`;
 }
+
 
 function toEmptyCart() {
   // Lorsque qu'on clique sur le bouton, le panier se vide ainsi que le localStorage

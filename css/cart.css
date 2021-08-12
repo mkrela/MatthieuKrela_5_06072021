@@ -16,6 +16,7 @@ header {
   font-style: italic;
   background-color: #b3977d;
   border-radius: 0 0 1em 1em;
+  text-shadow: 1px 1px 4px cadetblue;
 }
 
 header h1 {
@@ -49,55 +50,106 @@ footer {
 }
 
 .cart-card__recap__row {
+  margin: 0;
   display: flex;
+  font-size: 2vw;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .product-row {
-  margin: 1vh;
   position: relative;
 }
 
-
-.cart-card__recap {
-  border: 1px solid black;
-}
-
 .cart-card__recap__title {
-position: relative;
+  position: relative;
 }
 
 .title-quantity {
-position: absolute;
-left: 49%;
+  position: absolute;
+  left: 49%;
 }
 
+.width-to-empty-cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.title-quantity {
+  padding-left: 3vw;
+}
+
+.first-line {
+  padding-left: 0;
+}
 .to-empty-cart {
+  margin-bottom: 0;
   margin-top: 2vh;
-  text-decoration: underline overline wavy cadetblue;
+  background-color: rgba(255, 51, 0, 0.521);
 }
 
-.disparaisfdp {
+.to-empty-cart button {
   display: none;
 }
 
+
 .form {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
 
-.cart-card__form__buttons {
-  border: 1px solid cadetblue;
+.form label {
+  margin: 10px;
+}
+
+.cart-card__form__button {
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  font-size: 2vh;
 }
 
 h2 {
+  margin: 2vw;
   margin-left: 5vw;
+  font-size: 2vw;
+  text-decoration: underline rgba(88, 88, 88, 0.233);
+}
+.total {
+  margin: 1.5em;
 }
 
-.total {;
-  margin: 1.5em;
-  border: 0.1px solid cadetblue;
+
+button {
+  border: 2px solid rgba(61, 61, 61, 0.932) !important;
+  background-color: rgba(38, 177, 38, 0.445);
+  padding: 1vw;
+  margin: 2vw;
+  border-radius: 2vw;
+}
+
+.first-line {
+  font-size: 2vw;
+  border-bottom: 5px groove cadetblue;
+  margin-bottom: 2vw;
+}
+
+.cart-card__recap {
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.erreur {
+  text-decoration: underline red;
+}
+
+.total {
+  text-align: center;
+}
+
+.cart {
+  margin-bottom: 2vw;
+  text-align: left;
 }
