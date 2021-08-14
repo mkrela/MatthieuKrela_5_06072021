@@ -6,7 +6,7 @@ function main () {
 
 function displayOrderAndPrice () {
     const totalConfirmation = document.querySelector('.total span');
-    const orderId = document.querySelector('.order-id span');
+    const orderId = document.querySelector('.display-orderid');
 
     totalConfirmation.innerText= localStorage.getItem("total");
     orderId.innerText=localStorage.getItem("orderId");

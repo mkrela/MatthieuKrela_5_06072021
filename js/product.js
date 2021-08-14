@@ -92,7 +92,7 @@ function addToCart() {
         name: article.name,
         price: article.price,
         quantity: parseFloat(document.querySelector("#bearNum").value),
-        id: id,
+        _id: id,
       };
 
       // GESTION DU LOCALSTORAGE ------------------------------------------------------------------------------------------------------------------------------------------------------------------
