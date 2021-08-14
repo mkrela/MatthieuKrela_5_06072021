@@ -1,9 +1,8 @@
 let cart = document.querySelector(".cart-card__recap");
-let copyOfLS = JSON.parse(localStorage.getItem("products"));
+const copyOfLS = JSON.parse(localStorage.getItem("products"));
 console.log(copyOfLS);
 
 main();
-
 function main() {
   displayCart();
   countTotalInCart();
@@ -22,59 +21,59 @@ function displayCart() {
     cartCard.style.justifyContent = "space-around";
     emptyCart.style.display = "none";
   }
-
   // Pour chaque élément du LocalStorage, on crée les divs dynamiquement pour remplir le tableau
 
-  for (let produit in copyOfLS) {
-    let productRow = document.createElement("div");
-    cart.insertBefore(productRow, test);
-    productRow.classList.add("cart-card__recap__row", "product-row");
+  for (let produit in copyOfLS)
+    if (copyOfLS !== null) {
+      let productRow = document.createElement("div");
+      cart.insertBefore(productRow, test);
+      productRow.classList.add("cart-card__recap__row", "product-row");
 
-    let productName = document.createElement("div");
-    productRow.appendChild(productName);
-    productName.classList.add("cart-card__recap__title");
-    productName.innerHTML = copyOfLS[produit].name;
+      let productName = document.createElement("div");
+      productRow.appendChild(productName);
+      productName.classList.add("cart-card__recap__title");
+      productName.innerHTML = copyOfLS[produit].name;
 
-    let productQuantity = document.createElement("div");
-    productRow.appendChild(productQuantity);
-    productQuantity.classList.add("cart-card__recap__title", "title-quantity");
-    productQuantity.innerHTML = copyOfLS[produit].quantity;
+      let productQuantity = document.createElement("div");
+      productRow.appendChild(productQuantity);
+      productQuantity.classList.add(
+        "cart-card__recap__title",
+        "title-quantity"
+      );
+      productQuantity.innerHTML = copyOfLS[produit].quantity;
 
-    let productPrice = document.createElement("div");
-    productRow.appendChild(productPrice);
-    productPrice.classList.add(
-      "cart-card__recap__title",
-      "data-price",
-      "price"
-    );
-    productPrice.innerHTML = copyOfLS[produit].price;
+      let productPrice = document.createElement("div");
+      productRow.appendChild(productPrice);
+      productPrice.classList.add(
+        "cart-card__recap__title",
+        "data-price",
+        "price"
+      );
+      productPrice.innerHTML = copyOfLS[produit].price;
 
-    // affichage prix au bon format
+      // affichage prix au bon format
 
-    productPrice.innerHTML = new Intl.NumberFormat("fr-FR", {
-      style: "currency",
-      currency: "EUR",
-    }).format(copyOfLS[produit].price * copyOfLS[produit].quantity);
-  }
+      productPrice.innerHTML = new Intl.NumberFormat("fr-FR", {
+        style: "currency",
+        currency: "EUR",
+      }).format(copyOfLS[produit].price * copyOfLS[produit].quantity);
+    } else {
+      console.log("Rien dans le LocalStorage");
+    }
 }
 
 function countTotalInCart() {
   let arrayOfPrice = [];
   let totalPrice = document.querySelector(".total");
 
-  // On push chaque prix du DOM dans un tableau
-  let productPriceAccordingToQuantity = document.querySelectorAll(".price");
-  for (let price in productPriceAccordingToQuantity) {
-    arrayOfPrice.push(productPriceAccordingToQuantity[price].innerHTML);
+  // // On push chaque prix du DOM dans un tableau
+
+  for (let produit in copyOfLS) {
+    let prixArticle = copyOfLS[produit].price * copyOfLS[produit].quantity;
+    arrayOfPrice.push(prixArticle);
   }
 
-  // On enlève les undefined du tableau
-  arrayOfPrice = arrayOfPrice.filter((el) => {
-    return el != undefined;
-  });
-  // console.log(arrayOfPrice);
-  // Transformer en nombre chaque valeur du tableau
-  arrayOfPrice = arrayOfPrice.map((x) => parseFloat(x));
+  console.log(arrayOfPrice);
 
   // Additionner les valeurs du tableau pour avoir le prix total
 
@@ -90,7 +89,6 @@ function countTotalInCart() {
     }
   ).format(arrayOfPrice))}`;
 }
-
 
 function toEmptyCart() {
   // Lorsque qu'on clique sur le bouton, le panier se vide ainsi que le localStorage
