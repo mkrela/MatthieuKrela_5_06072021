@@ -1,3 +1,4 @@
+// On récupère l'id de l'url ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
 //  Définition des constantes -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -8,11 +9,7 @@ const productCardPrice = document.querySelector(".product-card__infos__price");
 const bearNumber = document.querySelector("#bearNum");
 const colorSelect = document.querySelector("#color-select");
 
-//  APPEL DE LA FONCTION MAIN -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 main();
-
-//  Définition de la fonction main -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function main() {
   checkIf404();
@@ -38,14 +35,13 @@ function checkIf404() {
 }
 
 function getArticles() {
-  // On récupère uniquement le produit concerné via le paramètre dans la requête ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  // On récupère uniquement le produit concerné via le paramètre dans l'URL ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   fetch(`http://localhost:3000/api/teddies/${id}`)
     .then(function (response) {
       return response.json();
     })
 
     // Si la requête échoue, on définit un message d'erreur -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
     .catch((error) => {
       let container = document.querySelector(".container");
       container.innerHTML =
@@ -95,17 +91,17 @@ function addToCart() {
         _id: id,
       };
 
-      // GESTION DU LOCALSTORAGE ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      // GESTION DU LOCALSTORAGE ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart 
       if (localStorage.getItem("products") !== null) {
         arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
 
-        // On vérifie si notre produit figure déjà dans le local storage grâce à la méthode findIndex --------------------------------------------------------------------------------------------
+        // On vérifie si notre produit figure déjà dans le local storage grâce à la méthode findIndex --------------------------------------------------------------------------------------------------------------------
         function add(product) {
           const idx = arrayProductsInCart.findIndex(
             (elem) => elem.id === product.id
           );
-          // Si le produit n'est pas dans le localStorage, on ajoute donc la quantité souhaitée par l'utilisateur -----------------------------------------------------------------------------------
+          // Si le produit n'est pas dans le localStorage, on ajoute donc la quantité souhaitée par l'utilisateur -------------------------------------------------------------------------------------------------------
           if (idx === -1) {
             arrayProductsInCart.push(product);
           } 
