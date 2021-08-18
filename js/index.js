@@ -9,6 +9,7 @@ function getArticles() {
     .then(function (res) {
       return res.json();
     })
+
     // En cas de problème on dispose un message d'erreur à l'utilisateur ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     .catch((error) => {
       let productsContainer = document.querySelector(".products-container");
@@ -18,7 +19,7 @@ function getArticles() {
     })
 
     //   Disposition des données relatives aux articles dans le DOM ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    .then(function (resultatAPI) {
+    .then(function displayInfo(resultatAPI) {
       const articles = resultatAPI;
 
       // On boucle : pour chaque produit que le backend nous envoit, une 'carte' va se créer dynamiquement, contenant les infos dudit produit ---------------------------------------------------------------------------------------------------
@@ -26,7 +27,7 @@ function getArticles() {
         let productCard = document.createElement("div");
         document.querySelector(".products").appendChild(productCard);
         productCard.classList.add("product");
-
+        console.log(productCard)
         //  On crée un lien pour chaque produit qui renvoit vers la page de celui en lui passant son ID ------------------------------------------------------------------------------------------------------------------------------------------
         let productLink = document.createElement("a");
         productCard.appendChild(productLink);

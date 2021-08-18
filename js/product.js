@@ -23,7 +23,7 @@ function checkIf404() {
   window.addEventListener(
     "error",
     (e) => {
-      let container = document.querySelector(".container");
+      let container = document.querySelector(".product-card");
       container.innerHTML = `<p>Cette page n'existe pas. <a class="back-to-home" href="index.html">Retourner dans la boutique ?</a></p>`;
       container.style.padding = "40vh 0";
       container.style.fontSize = "26px";
@@ -99,14 +99,14 @@ function addToCart() {
         // On vérifie si notre produit figure déjà dans le local storage grâce à la méthode findIndex --------------------------------------------------------------------------------------------------------------------
         function add(product) {
           const idx = arrayProductsInCart.findIndex(
-            (elem) => elem.id === product.id
+            (elem) => elem._id === product._id
           );
-          // Si le produit n'est pas dans le localStorage, on ajoute donc la quantité souhaitée par l'utilisateur -------------------------------------------------------------------------------------------------------
+          // Si le produit n'est pas dans le localStorage, on ajoute donc la quantité souhaitée par l'utilisateur --------------------------------------------------------------------------------------------------------
           if (idx === -1) {
             arrayProductsInCart.push(product);
           } 
           
-          // Si le produit est déjà présent dans le localStorage, on additionne la quantité souhaitée par l'utilisateur à la quantité déjà présente -----------------------------------------------------------------------------------------------------------
+          // Si le produit est déjà présent dans le localStorage, on additionne la quantité souhaitée par l'utilisateur à la quantité déjà présente ----------------------------------------------------------------------
           else {
             arrayProductsInCart[idx].quantity += product.quantity;
           }

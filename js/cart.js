@@ -1,7 +1,8 @@
 // On définit copyOfLS qui est notre contenu du localStorage, ici les produits ajoutés au panier ------------------------------------------------------------------------------------------------------------------------------------
 let cart = document.querySelector(".cart-card__recap");
 const copyOfLS = JSON.parse(localStorage.getItem("products"));
-console.log(copyOfLS);
+const regexEmail =
+  /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,63})$/;
 
 main();
 function main() {
@@ -75,12 +76,11 @@ function countTotalInCart() {
     arrayOfPrice.push(prixArticle);
   }
 
-  console.log(arrayOfPrice);
-
   // Additionner les valeurs du tableau pour avoir le prix total -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-  const reducer = (acc, currentVal) => acc + currentVal;
-  arrayOfPrice = arrayOfPrice.reduce(reducer);
+  if (arrayOfPrice.length < 0) {
+    const reducer = (acc, currentVal) => acc + currentVal;
+    arrayOfPrice = arrayOfPrice.reduce(reducer);
+  }
 
   // Affichage du prix avec formatage €
   totalPrice.innerText = `Total : ${(arrayOfPrice = new Intl.NumberFormat(
@@ -123,14 +123,16 @@ function checkFormAndPostRequest() {
       !inputAddress.value ||
       !inputMail.value ||
       !inputPhone.value
-    )
-    // On diffuse un message d'erreur si des champs sont vides ou le numéro pas au bon format ---------------------------------------------------------------------------------------------------------------------------------------------- 
-    { 
+    ) {
+      // On diffuse un message d'erreur si des champs sont vides ou le numéro pas au bon format ----------------------------------------------------------------------------------------------------------------------------------------------
       erreur.innerHTML = "Vous devez renseigner tous les champs !";
       e.preventDefault();
     } else if (isNaN(inputPhone.value)) {
       e.preventDefault();
       erreur.innerText = "Votre numéro de téléphone n'est pas valide !";
+    } else if (!regexEmail.test(inputMail.value)) {
+      e.preventDefault();
+      erreur.innerText = "L'adresse mail n'est pas valide";
     } else {
       let productsBought = [];
       productsBought.push(copyOfLS);
