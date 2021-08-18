@@ -14,6 +14,6 @@ function displayOrderAndPrice () {
 
     // on vide le LocalStorage pour finir l'opération ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    // localStorage.clear();
+    localStorage.clear();
 }
 

@@ -69,7 +69,7 @@ function countTotalInCart() {
   let arrayOfPrice = [];
   let totalPrice = document.querySelector(".total");
 
-  // // On push chaque prix du DOM dans un tableau -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  // // On push chaque prix de nos articles dans un tableau -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   for (let produit in copyOfLS) {
     let prixArticle = copyOfLS[produit].price * copyOfLS[produit].quantity;
@@ -77,7 +77,7 @@ function countTotalInCart() {
   }
 
   // Additionner les valeurs du tableau pour avoir le prix total -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  if (arrayOfPrice.length < 0) {
+  if (arrayOfPrice.length > 0) {
     const reducer = (acc, currentVal) => acc + currentVal;
     arrayOfPrice = arrayOfPrice.reduce(reducer);
   }
@@ -104,76 +104,89 @@ function toEmptyCart() {
 
 function checkFormAndPostRequest() {
   const submit = document.querySelector("#submit");
-  let inputName = document.querySelector("#name");
-  let inputLastName = document.querySelector("#lastname");
-  let inputPostal = document.querySelector("#postal");
-  let inputCity = document.querySelector("#city");
-  let inputAddress = document.querySelector("#adress");
-  let inputMail = document.querySelector("#mail");
-  let inputPhone = document.querySelector("#phone");
-  let erreur = document.querySelector(".erreur");
 
-  //  On crée un listener pour vérifier que tous les champs sont renseignés ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-  submit.addEventListener("click", (e) => {
-    if (
-      !inputName.value ||
-      !inputLastName.value ||
-      !inputPostal.value ||
-      !inputCity.value ||
-      !inputAddress.value ||
-      !inputMail.value ||
-      !inputPhone.value
-    ) {
-      // On diffuse un message d'erreur si des champs sont vides ou le numéro pas au bon format ----------------------------------------------------------------------------------------------------------------------------------------------
-      erreur.innerHTML = "Vous devez renseigner tous les champs !";
+  // On vérifie dans un premier temps que le localStorage contient des objets ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+  if (copyOfLS) {
+    let inputName = document.querySelector("#name");
+    let inputLastName = document.querySelector("#lastname");
+    let inputPostal = document.querySelector("#postal");
+    let inputCity = document.querySelector("#city");
+    let inputAddress = document.querySelector("#adress");
+    let inputMail = document.querySelector("#mail");
+    let inputPhone = document.querySelector("#phone");
+    let erreur = document.querySelector(".erreur");
+
+    //  On crée un listener pour vérifier que tous les champs sont renseignés ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+    submit.addEventListener("click", (e) => {
+      if (
+        !inputName.value ||
+        !inputLastName.value ||
+        !inputPostal.value ||
+        !inputCity.value ||
+        !inputAddress.value ||
+        !inputMail.value ||
+        !inputPhone.value
+      ) {
+        // On diffuse un message d'erreur si des champs sont vides ou le numéro pas au bon format ----------------------------------------------------------------------------------------------------------------------------------------------
+        erreur.innerHTML = "Vous devez renseigner tous les champs !";
+        e.preventDefault();
+      } else if (isNaN(inputPhone.value)) {
+        e.preventDefault();
+        erreur.innerText = "Votre numéro de téléphone n'est pas valide !";
+      } else if (!regexEmail.test(inputMail.value)) {
+        e.preventDefault();
+        erreur.innerText = "L'adresse mail n'est pas valide";
+      } else {
+        let productsBought = [];
+        productsBought.push(copyOfLS);
+
+        // On crée la constante Order qui va prendre les informations contact de l'utilisateur ----------------------------------------------------------------------------------------------------------------------------------------------
+        const order = {
+          contact: {
+            firstName: inputName.value,
+            lastName: inputLastName.value,
+            city: inputCity.value,
+            address: inputAddress.value,
+            email: inputMail.value,
+          },
+          products: productsBought,
+        };
+
+        // Envoi de la requête POST au backend ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        // creation de l'entête de la requête  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        const options = {
+          method: "POST",
+          body: JSON.stringify(order),
+          headers: { "Content-type": "application/json" },
+        };
+        // Préparation du prix formaté pour l'afficher sur la prochaine page ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+        let priceConfirmation = document.querySelector(".total").innerText;
+        priceConfirmation = priceConfirmation.split(":");
+
+        // Envoi de la requête avec l'en tête. On changera de page avec un localStorage contient order, id, prix ---------------------------------------------------------------------------------------------------------------------------
+        fetch("http://localhost:3000/api/teddies/order", options)
+          .then((response) => response.json())
+          .then((data) => {
+            localStorage.clear();
+            localStorage.setItem("orderId", data.orderId);
+            localStorage.setItem("total", priceConfirmation[1]);
+
+            //  vérifier le statut 201 de la requête fetch ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            document.location.href = "confirmation.html";
+          })
+          .catch((err) => {
+            alert("Il y a une erreur:" + err);
+          });
+      }
+    });
+
+    // Si le panier est vide on indique à l'utilisateur qu'il doit au moins acheter 1 article pour passer commande --------------------------------------------------------------------------------------------------------------------------
+  } else {
+    submit.addEventListener("click", (e) => {
       e.preventDefault();
-    } else if (isNaN(inputPhone.value)) {
-      e.preventDefault();
-      erreur.innerText = "Votre numéro de téléphone n'est pas valide !";
-    } else if (!regexEmail.test(inputMail.value)) {
-      e.preventDefault();
-      erreur.innerText = "L'adresse mail n'est pas valide";
-    } else {
-      let productsBought = [];
-      productsBought.push(copyOfLS);
-
-      // On crée la constante Order qui va prendre les informations contact de l'utilisateur ----------------------------------------------------------------------------------------------------------------------------------------------
-      const order = {
-        contact: {
-          firstName: inputName.value,
-          lastName: inputLastName.value,
-          city: inputCity.value,
-          address: inputAddress.value,
-          email: inputMail.value,
-        },
-        products: productsBought,
-      };
-
-      // Envoi de la requête POST au backend ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      // creation de l'entête de la requête  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      const options = {
-        method: "POST",
-        body: JSON.stringify(order),
-        headers: { "Content-type": "application/json" },
-      };
-      // Préparation du prix formaté pour l'afficher sur la prochaine page ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-      let priceConfirmation = document.querySelector(".total").innerText;
-      priceConfirmation = priceConfirmation.split(":");
-
-      // Envoi de la requête avec l'en tête. On changera de page avec un localStorage contient order, id, prix ---------------------------------------------------------------------------------------------------------------------------
-      fetch("http://localhost:3000/api/teddies/order", options)
-        .then((response) => response.json())
-        .then((data) => {
-          localStorage.clear();
-          localStorage.setItem("orderId", data.orderId);
-          localStorage.setItem("total", priceConfirmation[1]);
-
-          //  vérifier le statut 201 de la requête fetch ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          document.location.href = "confirmation.html";
-        })
-        .catch((err) => {
-          alert("Il y a une erreur:" + err);
-        });
-    }
-  });
+      let erreur = document.querySelector(".erreur");
+      erreur.innerText =
+        "Votre panier est vide, vous devez le remplir !";
+    });
+  }
 }
