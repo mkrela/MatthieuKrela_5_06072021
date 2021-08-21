@@ -32,3 +32,11 @@
     background-color: #b3977d;
   }
   
+.confirm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+min-height: 500px;
+margin-top: auto;
+margin-bottom: auto;
+}
