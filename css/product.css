@@ -183,4 +183,57 @@ footer a:hover {
   text-align: center;
 }
 
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 15px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+  .basdepage {
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 10px;
+  }
+  footer {
+    font-size: 10px;
+  }
+  .basdepage {
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  .basdepage a {
+    margin: auto;
+  }
+
+  .product-card__infos__description {
+    font-size: 10px;
+  }
+
+  .product-card__infos__title {
+    font-size: 12px;
+  }
+
+  label {
+    font-size: 11px;
+  }
+
+  footer a {
+    font-size: 15px;
+  }
+}
+
+
 /*# sourceMappingURL=style.css.map */

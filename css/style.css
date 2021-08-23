@@ -17,7 +17,6 @@ header {
   background-color: #b3977d;
   border-radius: 0 0 1em 1em;
   text-shadow: 1px 1px 4px cadetblue;
-
 }
 
 header h1 {
@@ -138,4 +137,38 @@ footer {
   font-weight: 900;
 }
 
-/*# sourceMappingURL=style.css.map */
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 13px;
+  }
+
+  footer {
+    font-size: 10px;
+  }
+  .basdepage {
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 10px;
+  }
+  footer {
+    font-size: 10px;
+  }
+  .basdepage {
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  .basdepage a {
+    margin: auto;
+  }
+}

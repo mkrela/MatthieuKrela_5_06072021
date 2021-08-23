@@ -52,7 +52,7 @@ footer {
 .cart-card__recap__row {
   margin: 0;
   display: flex;
-  font-size: 2vw;
+  font-size: 2em;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -114,7 +114,7 @@ footer {
 h2 {
   margin: 2vw;
   margin-left: 5vw;
-  font-size: 2vw;
+  font-size: 1.5em;
   text-decoration: underline rgba(88, 88, 88, 0.233);
 }
 .total {
@@ -131,7 +131,7 @@ button {
 }
 
 .first-line {
-  font-size: 2vw;
+  font-size: 1em;
   border-bottom: 5px groove cadetblue;
   margin-bottom: 2vw;
 }
@@ -152,4 +152,57 @@ button {
 .cart {
   margin-bottom: 2vw;
   text-align: left;
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 15px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+  .basdepage {
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 10px;
+  }
+  footer {
+    font-size: 10px;
+  }
+  .basdepage {
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  .basdepage a {
+    margin: auto;
+  }
+
+  .hautedepage h1 {
+    font-size: 9px !important;
+    display: none;
+  }
+
+  .first-line {
+    font-size: 17px;
+  }
+
+  .cart-card__recap__row {
+    font-size: 17px;
+  }
+
+  label {
+    font-size: 15px;
+  }
 }

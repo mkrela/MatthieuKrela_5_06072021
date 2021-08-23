@@ -40,3 +40,52 @@ min-height: 500px;
 margin-top: auto;
 margin-bottom: auto;
 }
+
+@media screen and (max-width: 992px) {
+  body {
+    font-size: 15px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+  .basdepage {
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+  footer {
+    font-size: 10px;
+  }
+  .basdepage {
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  .basdepage a {
+    margin: auto;
+  }
+
+  .total {
+    font-size: 15px;
+  }
+
+  h2 {
+    font-size: 17px;
+    padding: 10px;
+  }
+
+  .orderid {
+    padding: 5%;
+  }
+}
