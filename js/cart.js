@@ -113,7 +113,6 @@ function checkFormAndPostRequest() {
     let inputCity = document.querySelector("#city");
     let inputAddress = document.querySelector("#adress");
     let inputMail = document.querySelector("#mail");
-    let inputPhone = document.querySelector("#phone");
     let erreur = document.querySelector(".erreur");
 
     //  On crée un listener pour vérifier que tous les champs sont renseignés ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -124,15 +123,11 @@ function checkFormAndPostRequest() {
         !inputPostal.value ||
         !inputCity.value ||
         !inputAddress.value ||
-        !inputMail.value ||
-        !inputPhone.value
+        !inputMail.value
       ) {
         // On diffuse un message d'erreur si des champs sont vides ou le numéro pas au bon format ----------------------------------------------------------------------------------------------------------------------------------------------
         erreur.innerHTML = "Vous devez renseigner tous les champs !";
         e.preventDefault();
-      } else if (isNaN(inputPhone.value)) {
-        e.preventDefault();
-        erreur.innerText = "Votre numéro de téléphone n'est pas valide !";
       } else if (!regexEmail.test(inputMail.value)) {
         e.preventDefault();
         erreur.innerText = "L'adresse mail n'est pas valide";
@@ -185,8 +180,7 @@ function checkFormAndPostRequest() {
     submit.addEventListener("click", (e) => {
       e.preventDefault();
       let erreur = document.querySelector(".erreur");
-      erreur.innerText =
-        "Votre panier est vide, vous devez le remplir !";
+      erreur.innerText = "Votre panier est vide, vous devez le remplir !";
     });
   }
 }
