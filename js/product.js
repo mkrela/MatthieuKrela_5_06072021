@@ -1,10 +1,13 @@
 // On récupère l'id de l'url ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
+let article;
 //  Définition des constantes -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 const productCardImg = document.querySelector(".img");
 const productCardName = document.querySelector(".product-card__infos__title");
-const productCardDescription = document.querySelector(".product-card__infos__description");
+const productCardDescription = document.querySelector(
+  ".product-card__infos__description"
+);
 const productCardPrice = document.querySelector(".product-card__infos__price");
 const bearNumber = document.querySelector("#bearNum");
 const colorSelect = document.querySelector("#color-select");
@@ -23,12 +26,10 @@ function checkIf404() {
   window.addEventListener(
     "error",
     (e) => {
-      let container = document.querySelector(".product-card");
-      container.innerHTML = `<p>Cette page n'existe pas. <a class="back-to-home" href="index.html">Retourner dans la boutique ?</a></p>`;
-      container.style.padding = "40vh 0";
-      container.style.fontSize = "26px";
-      let backToHomeLink = document.querySelector(".back-to-home");
-      backToHomeLink.style.textDecoration = "underline";
+      errHandler(
+        document.querySelector(".product-card"),
+        `<p>Cette page n'existe pas. <a class="back-to-home" href="index.html">Retourner dans la boutique ?</a></p>`
+      );
     },
     true
   );
@@ -39,15 +40,6 @@ function getArticles() {
   fetch(`http://localhost:3000/api/teddies/${id}`)
     .then(function (response) {
       return response.json();
-    })
-
-    // Si la requête échoue, on définit un message d'erreur -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    .catch((error) => {
-      let container = document.querySelector(".container");
-      container.innerHTML =
-        "Nous n'avons pas réussi à afficher nos nounours. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous.";
-      container.style.textAlign = "center";
-      container.style.padding = "45vh 0";
     })
 
     // On place les données reçues via l'API aux bons endroits sur la page -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -71,6 +63,14 @@ function getArticles() {
         option.innerText = article.colors[i];
         colorSelect.appendChild(option);
       }
+    })
+
+    // Si la requête échoue, on définit un message d'erreur -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    .catch((error) => {
+      errHandler(
+        document.querySelector(".container"),
+        "Nous n'avons pas réussi à afficher nos nounours. Avez-vous bien lancé le serveur local (Port 3000) ? <br>Si le problème persiste, contactez-nous."
+      );
     });
 }
 // FONCTION D'AJOUT AU PANIER ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -92,7 +92,7 @@ function addToCart() {
       };
 
       // GESTION DU LOCALSTORAGE ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-      // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart 
+      // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart
       if (localStorage.getItem("products") !== null) {
         arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
 
@@ -104,8 +104,8 @@ function addToCart() {
           // Si le produit n'est pas dans le localStorage, on ajoute donc la quantité souhaitée par l'utilisateur --------------------------------------------------------------------------------------------------------
           if (idx === -1) {
             arrayProductsInCart.push(product);
-          } 
-          
+          }
+
           // Si le produit est déjà présent dans le localStorage, on additionne la quantité souhaitée par l'utilisateur à la quantité déjà présente ----------------------------------------------------------------------
           else {
             arrayProductsInCart[idx].quantity += product.quantity;
@@ -129,8 +129,8 @@ function addToCart() {
       confirmation.style.visibility = "visible";
       textConfirmation.innerHTML = `${bearNumber.value} articles ajouté(s) !`;
       setTimeout("location.reload(true);", 2000);
-    } 
-    
+    }
+
     // Si la quantité n'est pas comprise entre 0 et 99 on affiche un message d'erreur de couleur rouge ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     else {
       confirmation.style.visibility = "visible";

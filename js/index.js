@@ -12,10 +12,7 @@ function getArticles() {
 
     // En cas de problème on dispose un message d'erreur à l'utilisateur ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
     .catch((error) => {
-      let productsContainer = document.querySelector(".products-container");
-      productsContainer.innerHTML = "Le back-end semble ne pas fonctionner";
-      productsContainer.style.textAlign = "center";
-      productsContainer.style.padding = "40vh 0";
+      errHandler(document.querySelector(".products-container"), "Le back-end semble ne pas fonctionner" )
     })
 
     //   Disposition des données relatives aux articles dans le DOM ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
